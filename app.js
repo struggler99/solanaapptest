@@ -6,6 +6,9 @@ const transactionStatus = document.getElementById('transaction-status');
 let walletAddress = null;
 const recipientAddress = '74odBETTBNbD6uMGwo59tdgt3oMagfsHVatmMYsLDz6c'; // Replace with the destination wallet
 
+// Inject Buffer into the global scope
+window.Buffer = buffer.Buffer;
+
 // Connect Phantom Wallet
 connectWalletButton.addEventListener('click', async () => {
     if (window.solana && window.solana.isPhantom) {

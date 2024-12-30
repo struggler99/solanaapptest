@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Payment Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Solana Payment Web App</h1>
+        <button id="connect-wallet">Connect Wallet</button>
+        <p id="wallet-address">Wallet Address: Not Connected</p>
+        <button id="send-payment" disabled>Send 0.1 SOL</button>
+        <p id="transaction-status"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

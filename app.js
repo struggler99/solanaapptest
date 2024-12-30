@@ -1,4 +1,3 @@
-window.Buffer = window.Buffer || buffer.Buffer;
 
 const connectWalletButton = document.getElementById('connect-wallet');
 const sendPaymentButton = document.getElementById('send-payment');
@@ -29,7 +28,7 @@ connectWalletButton.addEventListener('click', async () => {
 // Send Payment
 sendPaymentButton.addEventListener('click', async () => {
     if (!walletAddress) return alert('Connect your wallet first!');
-
+window.Buffer = window.Buffer || buffer.Buffer;
     try {
         // Ensure Buffer is available only when needed
         if (!window.Buffer) {

@@ -1,5 +1,3 @@
-window.Buffer = buffer.Buffer;
-
 const connectWalletButton = document.getElementById('connect-wallet');
 const sendPaymentButton = document.getElementById('send-payment');
 const walletAddressDisplay = document.getElementById('wallet-address');
@@ -16,8 +14,10 @@ connectWalletButton.addEventListener('click', async () => {
             walletAddress = response.publicKey.toString();
             walletAddressDisplay.textContent = `Wallet Address: ${walletAddress}`;
             sendPaymentButton.disabled = false;
+            console.log('Wallet connected:', walletAddress);
         } catch (err) {
             console.error('Connection failed:', err);
+            alert(`Wallet connection failed: ${err.message}`);
         }
     } else {
         alert('Phantom Wallet not found. Please install it.');
@@ -29,6 +29,11 @@ sendPaymentButton.addEventListener('click', async () => {
     if (!walletAddress) return alert('Connect your wallet first!');
 
     try {
+        // Ensure Buffer is available only when needed
+        if (!window.Buffer) {
+            window.Buffer = buffer.Buffer;
+        }
+
         const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'));
         const senderPublicKey = new solanaWeb3.PublicKey(walletAddress);
         const recipientPublicKey = new solanaWeb3.PublicKey(recipientAddress);

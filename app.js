@@ -1,3 +1,5 @@
+window.Buffer = buffer.Buffer;
+
 const connectWalletButton = document.getElementById('connect-wallet');
 const sendPaymentButton = document.getElementById('send-payment');
 const walletAddressDisplay = document.getElementById('wallet-address');
